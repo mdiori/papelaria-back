@@ -9,8 +9,8 @@ from uuid import uuid4
 class Sale(SoftDeleteModel):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid4)
     date = models.DateTimeField()
-    commission_min = models.PositiveIntegerField()
-    commission_min = models.PositiveIntegerField()
+    commission_min = models.PositiveIntegerField(default=0)
+    commission_max = models.PositiveIntegerField(default=10)
     invoice = models.CharField(max_length=128)
 
     # ForeignKeys
