@@ -2,5 +2,8 @@
 Django==4.0.4
 python-decouple==3.6
 
+# django rest framework
+djangorestframework==3.13.1
+
 # postgresql
 psycopg2==2.9.3
