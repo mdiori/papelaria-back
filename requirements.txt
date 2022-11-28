@@ -1,5 +1,6 @@
 # django
 Django==4.0.4
+django-cors-headers==3.11.0
 python-decouple==3.6
 
 # django rest framework
