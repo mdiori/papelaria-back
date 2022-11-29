@@ -26,3 +26,6 @@ class SaleProduct(SoftDeleteModel):
     quantity = models.PositiveIntegerField()
     sale = models.ForeignKey(Sale, models.CASCADE)
     product = models.ForeignKey(Product, models.CASCADE)
+
+    class Meta:
+        ordering = ['-created_at', ]
