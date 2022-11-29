@@ -15,12 +15,14 @@ from rest_framework.response import Response
 from rest_framework import status
 from core.pagination import ResultSetPagination
 from product.models import Product
+from commission.models import Commission
 from sale.models import Sale, SaleProduct
 from sale.serializers import (
     SaleModelSerializer,
     SaleProductModelSerializer,
 )
 from sale.filters import SaleFilter
+import datetime as dt
 
 
 class SaleListCreateView(ListCreateAPIView):
@@ -35,6 +37,17 @@ class SaleListCreateView(ListCreateAPIView):
     serializer_class = SaleModelSerializer
     pagination_class = ResultSetPagination
     filter_backends = [SaleFilter]
+
+    def create(self, request, *args, **kwargs):
+        dtime = dt.datetime.now()
+        weekday = dtime.weekday()
+
+        commission = Commission.objects.get(week_day=weekday)
+
+        request.data['commission_min'] = commission.commission_min
+        request.data['commission_max'] = commission.commission_max
+
+        return super().create(request, *args, **kwargs)
 
 
 class SaleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
