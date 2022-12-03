@@ -4,11 +4,12 @@ from client.models import Client
 from employee.models import Employee
 from product.models import Product
 from uuid import uuid4
+from django.utils.timezone import now
 
 
 class Sale(SoftDeleteModel):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid4)
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=now)
     commission_min = models.PositiveIntegerField(default=0)
     commission_max = models.PositiveIntegerField(default=10)
     invoice = models.CharField(max_length=128)
