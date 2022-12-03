@@ -38,16 +38,38 @@ class SaleListCreateView(ListCreateAPIView):
     pagination_class = ResultSetPagination
     filter_backends = [SaleFilter]
 
-    def create(self, request, *args, **kwargs):
+    def get_commission_value(self):
         dtime = dt.datetime.now()
         weekday = dtime.weekday()
 
         commission = Commission.objects.get(week_day=weekday)
 
-        request.data['commission_min'] = commission.commission_min
-        request.data['commission_max'] = commission.commission_max
+        return commission
 
-        return super().create(request, *args, **kwargs)
+    def create_sale_product_items(self, sale_id, products):
+        for product in products:
+            saleProduct = SaleProduct(
+                sale_id=sale_id,
+                product_id=product['id'],
+                quantity=product['quantity'])
+            saleProduct.save()
+
+    def create(self, request, *args, **kwargs):
+
+        commission = self.get_commission_value
+
+        if not commission:
+            request.data['commission_min'] = commission.commission_min
+            request.data['commission_max'] = commission.commission_max
+
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        sale_instance = serializer.save()
+
+        self.create_sale_product_items(
+            sale_instance.id, request.data['productsListed'])
+
+        return Response(status=status.HTTP_201_CREATED)
 
 
 class SaleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
