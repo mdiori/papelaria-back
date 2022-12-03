@@ -11,3 +11,6 @@ class Product(SoftDeleteModel):
     commission = models.PositiveIntegerField()
     code = models.CharField(max_length=128)
     active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['code', ]
