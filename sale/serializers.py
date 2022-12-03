@@ -35,13 +35,6 @@ class SaleModelSerializer(serializers.ModelSerializer):
         fields = ['id', 'date', 'commission_min', 'client', 'employee',
                   'commission_max', 'invoice', ]
         read_only_fields = ['id', 'created_at', 'updated_at']
-        extra_kwargs = {
-            'name': {
-                'validators': [
-                    UniqueValidator(Sale.objects.all())
-                ]
-            },
-        }
 
     def to_representation(self, instance):
         rep = super().to_representation(instance)
