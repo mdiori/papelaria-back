@@ -8,10 +8,10 @@ from sale.views import (
 
 urlpatterns = [
     path('', SaleListCreateView.as_view(), name='sale-list-create'),
-    path('<uuid:id>/',
+    path('<int:id>/',
          SaleRetrieveUpdateDestroyView.as_view(),
          name='sale-retrieve-update-destroy'),
-    path('<uuid:sale_id>/product/<uuid:product_id>/',
+    path('<int:sale_id>/product/<uuid:product_id>/',
          SaleAddUpdateDeleteProductView.as_view(),
          name='sale-product-add'),
 ]

@@ -22,12 +22,15 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('deleted_at', models.DateTimeField(blank=True, null=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField()),
                 ('commission_min', models.PositiveIntegerField()),
                 ('invoice', models.CharField(max_length=128)),
-                ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='client.client')),
-                ('employee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='employee.employee')),
+                ('client', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='client.client')),
+                ('employee', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='employee.employee')),
             ],
             options={
                 'ordering': ['date'],
@@ -39,10 +42,13 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('deleted_at', models.DateTimeField(blank=True, null=True)),
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('quantity', models.PositiveIntegerField()),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='product.product')),
-                ('sale', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='sale.sale')),
+                ('product', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='product.product')),
+                ('sale', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='sale.sale')),
             ],
             options={
                 'abstract': False,

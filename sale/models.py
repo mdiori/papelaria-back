@@ -8,7 +8,6 @@ from django.utils.timezone import now
 
 
 class Sale(SoftDeleteModel):
-    id = models.UUIDField(primary_key=True, editable=False, default=uuid4)
     date = models.DateTimeField(default=now)
     commission_min = models.PositiveIntegerField(default=0)
     commission_max = models.PositiveIntegerField(default=10)
