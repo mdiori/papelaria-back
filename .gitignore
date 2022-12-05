@@ -138,3 +138,7 @@ GitHub.sublime-settings
 
 # ETC
 .DS_Store
+
+# venv
+pyvenv.cfg
+/bin
