@@ -46,12 +46,18 @@
    python manage.py runserver
    ```
 
-## 4 - Implementações Futuras
+## 4 - Acesso ao admin
+
+URL: localhost:8000/admin/
+
+E a senha e o usuário são as presentes no arquivo `.env`.
+
+## 5 - Implementações Futuras
 
 - Autentição de requests.
 - Documentação com swagger.
 
-## 5 - Testes unitários
+## 6 - Testes unitários
 
 ```
 python manage.py test
