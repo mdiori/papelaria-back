@@ -18,7 +18,7 @@ def create_client():
     logger.info("Creating clients:")
 
     names = []
-    for x in range(0, 20):
+    for x in range(0, 5):
         client = Client(
             name=f'Cliente {x + 1}',
             mail=f'email{x + 1}@papelaria.com',

@@ -18,7 +18,7 @@ def create_employee():
     logger.info("Creating employees:")
 
     names = []
-    for x in range(0, 20):
+    for x in range(0, 5):
         employee = Employee(
             name=f'Vendedor {x + 1}',
             mail=f'email{x + 1}@papelaria.com',
