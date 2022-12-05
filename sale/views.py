@@ -90,6 +90,48 @@ class SaleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     serializer_class = SaleModelSerializer
     lookup_field = 'id'
 
+    def update_sale_product_items(self, sale_products):
+        for sale_product in sale_products:
+            saleProduct = SaleProduct.objects.filter(
+                id=sale_product['saved_sale_product']['id'])
+            saleProduct.update(
+                quantity=sale_product['quantity'])
+
+    def create_sale_product_items(self, sale_id, products):
+        for product in products:
+            saleProduct = SaleProduct(
+                sale_id=sale_id,
+                product_id=product['id'],
+                quantity=product['quantity'])
+            saleProduct.save()
+
+    def update(self, request, *args, **kwargs):
+        savedSaleProducts = request.data['sale']['sale_products'].copy()
+        requestSaleProducts = request.data['productsListed'].copy()
+
+        productsToUpdate = []
+        productsToCreate = []
+
+        for request_product in requestSaleProducts:
+            updated = False
+            for saved_sale_product in savedSaleProducts:
+                if (saved_sale_product['product']['id'] == request_product['id']):
+                    productsToUpdate.append(
+                        {'saved_sale_product': saved_sale_product, 'quantity': request_product['quantity']})
+                    updated = True
+            if not updated:
+                productsToCreate.append(request_product)
+
+        self.create_sale_product_items(
+            request.data['sale']['id'], productsToCreate)
+
+        self.update_sale_product_items(productsToUpdate)
+
+        sale = Sale.objects.update(
+            employee_id=request.data['employee'], client_id=request.data['client'])
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class SaleAddUpdateDeleteProductView(CreateModelMixin,
                                      UpdateModelMixin,
