@@ -30,7 +30,7 @@
 6. Instalar os requisitos do requirements.txt com o seguinte comando:
 
    ```
-   pip install -r .
+   pip install -r requirements.txt
    ```
 
 7. Rodar o seguinte script para criar o usuário admin e alimentar o banco com os
