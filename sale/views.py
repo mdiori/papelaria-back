@@ -90,6 +90,11 @@ class SaleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     serializer_class = SaleModelSerializer
     lookup_field = 'id'
 
+    def delete_sale_product_items(self, id):
+        saleProducts = SaleProduct.objects.filter(sale_id=id)
+        for saleProduct in saleProducts:
+            saleProduct.delete()
+
     def update_sale_product_items(self, sale_products):
         for sale_product in sale_products:
             saleProduct = SaleProduct.objects.filter(
@@ -131,6 +136,10 @@ class SaleRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
             employee_id=request.data['employee'], client_id=request.data['client'])
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, *args, **kwargs):
+        self.delete_sale_product_items(kwargs['id'])
+        return super().destroy(request, *args, **kwargs)
 
 
 class SaleAddUpdateDeleteProductView(CreateModelMixin,
