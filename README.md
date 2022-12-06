@@ -25,6 +25,10 @@
 
    ```
    python -m venv .
+   
+   ou 
+   
+   python3 -m venv .
    ```
 
 6. Instalar os requisitos do requirements.txt com o seguinte comando:
@@ -37,13 +41,21 @@
    seeds de exemplo:
 
    ```
-   sh scripts/entrypoint
+   sh scripts/entrypoint.sh
+   
+   ou
+   
+   sh scripts/entrypoint2.sh
    ```
 
 8. E por fim rodar o seguinte comando para iniciar o servidor:
 
    ```
    python manage.py runserver
+   
+   ou 
+   
+   python3 manage.py runserver
    ```
 
 ## 4 - Acesso ao admin
