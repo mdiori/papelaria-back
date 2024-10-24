@@ -98,6 +98,24 @@ https://github.com/mdiori/papelaria-front
 
 - Implementar autenticação para todas as requisições.
 - Adicionar documentação da API utilizando Swagger.
+- Melhorar apresentação de dados no Django admin.
+
+---
+
+## 📚 7 - Bibliotecas utilizadas
+
+```
+# django
+Django==4.0.4
+django-cors-headers==3.11.0
+python-decouple==3.6
+
+# django rest framework
+djangorestframework==3.13.1
+
+# postgresql
+psycopg2==2.9.3
+```
 
 ---
 
