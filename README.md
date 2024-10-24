@@ -150,3 +150,22 @@ Abaixo estão listados os requisitos funcionais e não funcionais para garantir 
    - 🔗 Comunicação do frontend com a API para obtenção e envio de dados.
 
 ---
+
+# 📋 **Contextualização**
+
+1. O cliente em questão é uma papelaria fictícia que deseja manter um registro de suas vendas e calcular as comissões de seus vendedores com base nas transações realizadas em um determinado período, levando em consideração os percentuais de comissão vinculados aos produtos comercializados.
+   
+2. Cada produto deve conter as seguintes informações: código, descrição, valor unitário e o percentual de comissão, que pode variar de 0 a 10%.
+   
+3. As vendas devem registrar o número da nota fiscal, data e hora da transação, o cliente, o vendedor, além de incluir uma lista com um ou mais produtos vendidos e suas respectivas quantidades.
+
+4. Tanto clientes quanto vendedores precisam ter nome, e-mail e telefone registrados.
+
+5. O cálculo da comissão é baseado no percentual cadastrado para o produto e aplicado ao valor total das vendas desse item (quantidade * valor unitário).
+
+6. Em certos dias da semana, os percentuais de comissão têm limites mínimos e máximos. Esses valores podem variar, por isso devem ser configuráveis.  
+   - Exemplo: Nas segundas-feiras, o percentual mínimo é 3% e o máximo é 5%. Se um produto tiver uma comissão de 10%, a comissão será limitada a 5% em uma venda nesse dia. Já se o percentual for inferior a 3%, como 2%, será ajustado para 3%.
+
+7. O total da comissão em uma venda será a soma das comissões individuais de cada item vendido.
+
+---
