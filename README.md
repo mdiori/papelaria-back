@@ -77,20 +77,27 @@
 
 ---
 
-## 📝 4 - Implementações Futuras
-
-- Implementar autenticação para todas as requisições.
-- Adicionar documentação da API utilizando Swagger.
-
----
-
-## ✅ 5 - Testes Unitários
+## ✅ 4 - Testes Unitários
 
 - Para rodar os testes unitários, execute o comando:
 
 ```bash
 python manage.py test
 ```
+
+---
+
+## 🔗 5 - Link frontend
+```
+https://github.com/mdiori/papelaria-front
+```
+
+---
+
+## 📝 6 - Implementações Futuras
+
+- Implementar autenticação para todas as requisições.
+- Adicionar documentação da API utilizando Swagger.
 
 ---
 
