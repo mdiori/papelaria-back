@@ -28,7 +28,7 @@
    o seguinte comando para criar um container com o postgres:
 
    ```
-   docker run --name amcom-database -e POSTGRES_PASSWORD=password -p 5432:5432 -d --restart=always postgres
+   docker run --name papelaria-database -e POSTGRES_PASSWORD=password -p 5432:5432 -d --restart=always postgres
    ```
 
 5. Criar um environment com o seguinte comando:
@@ -45,6 +45,10 @@
    
    ```
    source papelaria-env/bin/activate
+   ```
+
+   ```
+   sudo apt-get install python3.5-dev
    ```
   
 6. Instalar os requisitos do requirements.txt com o seguinte comando:
