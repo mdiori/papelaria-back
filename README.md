@@ -6,26 +6,41 @@
 
 ## 🛠️ 2 - Rodar o Servidor em Modo de Desenvolvimento
 
+1. **Clonar o Repositório**: 
+   Clone o repositório para o seu ambiente local.
+   
+2. **Acessar o Diretório**: 
+   Abra o terminal e navegue até o diretório do repositório clonado.
+
 ### 🐳 Com Docker 
 
-1. **Iniciar o Servidor**:
+3. **Configurar o Arquivo `.env`**: 
+   - Crie um arquivo `.env`.
+   - ```
+      # DB settings
+      DB_NAME=postgres
+      DB_USER=postgres
+      DB_PASSWORD=password
+      DB_HOST=db
+      DB_PORT=5432
+      
+      # Initial user settings
+      SUPERUSER=admin
+      SUPERUSER_PASS=password
+     ```
+
+4. **Iniciar o Servidor**:
    - Inicie o servidor com o comando:
 
    ```bash
    docker compose up --build
    ```
 
-2. **Acesso ao Admin**:
+5. **Acesso ao Admin**:
     - Acesse o painel administrativo pelo URL: `localhost:8000/admin/`
     - O nome de usuário e senha estão no arquivo `.env`.
-
+  
 ### 🥊 Sem Docker
-
-1. **Clonar o Repositório**: 
-   Clone o repositório para o seu ambiente local.
-   
-2. **Acessar o Diretório**: 
-   Abra o terminal e navegue até o diretório do repositório clonado.
 
 3. **Configurar o Arquivo `.env`**: 
    - Crie um arquivo `.env`.
