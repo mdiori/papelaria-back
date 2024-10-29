@@ -142,3 +142,4 @@ GitHub.sublime-settings
 # venv
 pyvenv.cfg
 /bin
+/papelaria-env
