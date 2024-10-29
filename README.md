@@ -6,7 +6,7 @@
 
 ## 🛠️ 2 - Rodar o Servidor em Modo de Desenvolvimento
 
-### Com Docker
+### 🐳 Com Docker 
 
 1. **Iniciar o Servidor**:
    - Finalmente, inicie o servidor com o comando:
@@ -19,7 +19,7 @@
     - Acesse o painel administrativo pelo URL: `localhost:8000/admin/`
     - O nome de usuário e senha estão no arquivo `.env`.
 
-### Sem Docker
+### 🥊 Sem Docker
 
 1. **Clonar o Repositório**: 
    Clone o repositório para o seu ambiente local.
