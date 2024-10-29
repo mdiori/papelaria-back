@@ -24,6 +24,9 @@ from sale.serializers import (
 from sale.filters import SaleFilter
 import datetime as dt
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class SaleListCreateView(ListCreateAPIView):
     '''
@@ -55,10 +58,10 @@ class SaleListCreateView(ListCreateAPIView):
             saleProduct.save()
 
     def create(self, request, *args, **kwargs):
+        commission = self.get_commission_value()
+        logger.info("Commission value: min=%s, max=%s", commission.commission_min, commission.commission_max)
 
-        commission = self.get_commission_value
-
-        if not commission:
+        if commission:
             request.data['commission_min'] = commission.commission_min
             request.data['commission_max'] = commission.commission_max
 

@@ -147,3 +147,19 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10000000,
     'MAX_PAGE_SIZE': 1000,
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}

@@ -21,7 +21,7 @@ def create_commission():
         commission = Commission(
             week_day=x,
             commission_min=0,
-            commission_max=10000,
+            commission_max=100,
         )
         commission.save()
 
