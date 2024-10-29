@@ -9,7 +9,7 @@
 ### 🐳 Com Docker 
 
 1. **Iniciar o Servidor**:
-   - Finalmente, inicie o servidor com o comando:
+   - Inicie o servidor com o comando:
 
    ```bash
    docker compose up --build
