@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   web:
     build:
@@ -13,8 +15,11 @@ services:
       - DB_PASSWORD=password
       - DB_HOST=db
       - DB_PORT=5432
+    volumes:
+      - .:/app
     networks:
       - backend
+    entrypoint: ["/bin/sh", "-c", "chmod +x /app/scripts/entrypoint.sh && /app/scripts/entrypoint.sh"]
 
   db:
     image: postgres
