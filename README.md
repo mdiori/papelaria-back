@@ -111,6 +111,15 @@
 
 - Para rodar os testes unitários, execute o comando:
 
+### 🐳 Com Docker 
+
+```bash
+docker exec -it django_app bash
+python manage.py test
+```
+
+### 🥊 Sem Docker
+
 ```bash
 python manage.py test
 ```
